@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Game Hub OS</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar glass">
+      <button id="sidebarToggle" class="icon-btn" title="Toggle sidebar">☰</button>
+      <input id="hubTitle" class="hub-title" value="Game Hub OS" aria-label="Hub title" />
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search games, tags, categories..." />
+        <ul id="suggestions" class="suggestions"></ul>
+      </div>
+      <button id="favoritesShortcut" class="icon-btn" title="Favorites">⭐</button>
+      <button id="randomBtn" class="icon-btn" title="Random game">🎲</button>
+      <button id="settingsBtn" class="icon-btn" title="Settings">⚙️</button>
+    </header>
+
+    <div class="layout">
+      <aside id="sidebar" class="sidebar glass">
+        <nav>
+          <button class="nav-btn active" data-view="home">🏠 <span>Home</span></button>
+          <button class="nav-btn" data-view="trending">🔥 <span>Trending</span></button>
+          <button class="nav-btn" data-view="favorites">⭐ <span>Favorites</span></button>
+          <button class="nav-btn" data-view="installed">📦 <span>Installed / Saved</span></button>
+          <button class="nav-btn" data-view="stats">📊 <span>Stats</span></button>
+        </nav>
+        <div class="category-block">
+          <label for="categoryFilter">📁 Categories</label>
+          <select id="categoryFilter">
+            <option value="all">All</option>
+            <option value="Action">Action</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Racing">Racing</option>
+            <option value="Horror">Horror</option>
+            <option value="Multiplayer">Multiplayer</option>
+          </select>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="toolbar glass">
+          <select id="sortSelect">
+            <option value="az">Sort: A-Z</option>
+            <option value="played">Sort: Most played</option>
+            <option value="newest">Sort: Newest</option>
+          </select>
+          <label class="slider-wrap">
+            Grid Size
+            <input id="gridSize" type="range" min="180" max="300" value="220" />
+          </label>
+          <label class="check"><input id="compactMode" type="checkbox" /> Compact</label>
+          <label class="check"><input id="safeMode" type="checkbox" /> Safe mode</label>
+          <label class="check"><input id="netflixMode" type="checkbox" /> Netflix mode</label>
+        </section>
+
+        <section id="featuredRow" class="featured-row"></section>
+        <section id="gameGrid" class="game-grid"></section>
+        <div class="pagination">
+          <button id="prevPage">Prev</button>
+          <span id="pageLabel">Page 1</span>
+          <button id="nextPage">Next</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="gameModal" class="game-modal">
+    <div class="modal-head">
+      <strong id="modalTitle">Game</strong>
+      <div>
+        <button id="minimizeGame">_</button>
+        <button id="fullscreenGame">⛶</button>
+        <button id="closeGame">✕</button>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div id="gameHost"></div>
+    </div>
+  </dialog>
+
+  <dialog id="settingsModal" class="settings-modal">
+    <h2>Customize Hub</h2>
+    <label>Theme
+      <select id="themeSelect">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="neon">Neon</option>
+        <option value="retro">Retro</option>
+      </select>
+    </label>
+    <label>Background
+      <input id="bgInput" placeholder="CSS color/gradient/image URL" />
+    </label>
+    <label>Avatar URL
+      <input id="avatarInput" placeholder="https://..." />
+    </label>
+    <hr />
+    <h3>Admin</h3>
+    <label>Admin passcode
+      <input id="adminPasscode" type="password" placeholder="Enter passcode" />
+    </label>
+    <button id="unlockAdmin">Unlock Admin</button>
+    <p id="adminStatus">Locked</p>
+    <div id="adminPanel" hidden>
+      <label>Snake start length
+        <input id="snakeStartLength" type="number" min="1" max="30" />
+      </label>
+      <label>Snake speed (ms per tick)
+        <input id="snakeTickMs" type="number" min="40" max="400" />
+      </label>
+      <div class="settings-actions">
+        <button id="loadAdminValues">Load Saved Values</button>
+        <button id="resetSnakeConfig">Reset Snake Defaults</button>
+      </div>
+      <label>Game to edit score
+        <select id="adminGameSelect"></select>
+      </label>
+      <label>Plays
+        <input id="adminPlays" type="number" min="0" />
+      </label>
+      <label>Minutes
+        <input id="adminMinutes" type="number" min="0" />
+      </label>
+      <button id="applyAdmin">Apply Admin Changes</button>
+    </div>
+    <div class="settings-actions">
+      <button id="saveSettings">Save</button>
+      <button id="closeSettings">Close</button>
+    </div>
+  </dialog>
+
+  <script src="./app.js"></script>
+</body>
+</html>
