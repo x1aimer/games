@@ -169,6 +169,16 @@ body {
 .collapsed .sidebar span, .collapsed .category-block { display: none; }
 .compact .game-card { padding: 6px; }
 .compact .thumb { aspect-ratio: 18/9; }
+.game-card h3 {
+  margin: 8px 0 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.game-card p {
+  margin: 2px 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
 .theme-light {
   --bg: linear-gradient(180deg, #f8fafc, #dbeafe);
   --text: #0f172a;
@@ -176,7 +186,7 @@ body {
   --card: rgba(255,255,255,0.78);
 }
 .theme-neon {
-  --bg: radial-gradient(circle at center, #00447c, #04cc1f);
+  --bg: radial-gradient(circle at top left, #00447c, #04cc1f);
   --text: #000000;
   --accent: #00ffd5;
 }

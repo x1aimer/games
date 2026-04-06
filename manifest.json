@@ -1,5 +1,5 @@
 {
-  "name": "Game Hub OS",
+  "name": "Games",
   "short_name": "GameHub",
   "start_url": "./index.html",
   "display": "standalone",
@@ -7,13 +7,13 @@
   "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "https://picsum.photos/seed/gamehubicon/192/192",
-      "sizes": "192x192",
+      "src": "https://drive.google.com/file/d/1kkP9_-o2fMGwGUcaTrhpTz3hum1Vlhf8/view?usp=sharing",
+      "sizes": "270x270",
       "type": "image/png"
     },
     {
-      "src": "https://picsum.photos/seed/gamehubicon/512/512",
-      "sizes": "512x512",
+      "src": "https://drive.google.com/file/d/1--d_jN3t9btSZthGG8Hvbj6Y-BHjZTog/view?usp=sharing",
+      "sizes": "540x540",
       "type": "image/png"
     }
   ]
